@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_View">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_lock_app"
+            android:icon="@drawable/ic_lock_app"
+            android:title="Lock App" />
+        <item
+            android:id="@+id/nav_events_available"
+            android:icon="@drawable/ic_event_available"
+            android:title="Upcoming Events" />
+        <item
+            android:id="@+id/nav_break_moments"
+            android:icon="@drawable/ic_break_moments"
+            android:title="Break period" />
+        <item
+            android:id="@+id/nav_achievements"
+            android:icon="@drawable/ic_achievements"
+            android:title="Achievements" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile" />
+
+    </group>
+
+    <item android:title="communication">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="Share" />
+        </menu>
+    </item>
+
+</menu>
