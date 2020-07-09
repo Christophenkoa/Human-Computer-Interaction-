@@ -16,6 +16,7 @@ public class BePresentOpenHelper extends SQLiteOpenHelper {
     public static final String COL_3 = "user_name";
     public static final String COL_4 = "user_email";
     public static final String COL_5 = "user_password";
+    public static final String COL_6 = "location";
     public static final String COL_1 = "ID";
 
     public BePresentOpenHelper(@Nullable Context context) {
@@ -24,23 +25,25 @@ public class BePresentOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE user (ID INTEGER PRIMARY KEY AUTOINCREMENT , user_full_name TEXT NOT NULL,user_name TEXT UNIQUE NOT NULL, user_email TEXT UNIQUE NOT NULL, user_password TEXT NOT NULL )");
+        db.execSQL("CREATE TABLE user (ID INTEGER PRIMARY KEY AUTOINCREMENT , user_full_name TEXT NOT NULL,user_name TEXT UNIQUE NOT NULL, user_email TEXT UNIQUE NOT NULL, user_password TEXT NOT NULL ,location TEXT NOT NULL)");
 
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_NAME);
+       // db.execSQL(" DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
-    public long addUser(String userFullName , String userName , String userEmail , String userPassword){
+    public long addUser(String userFullName , String userName , String userEmail , String userPassword, String userLocation){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("user_full_name",userFullName);
         contentValues.put("user_name",userName);
-        contentValues.put("user_email",userName);
+        contentValues.put("user_email",userEmail);
         contentValues.put("user_password",userPassword);
+        contentValues.put("location",userLocation);
         long res = db.insert("user",null ,contentValues);
         db.close();
         return res;
@@ -61,5 +64,14 @@ public class BePresentOpenHelper extends SQLiteOpenHelper {
         }else {
             return false;
         }
+    }
+
+ public Cursor searchUsers(String email , SQLiteDatabase db) {
+         Cursor cursor1;
+         String[] columns = { COL_2,COL_3,COL_6};
+         String selection = COL_4 + "=?";
+         String[] selectionArgs = {email};
+         cursor1 = db.query(TABLE_NAME,columns,selection, selectionArgs,null,null,null);
+        return cursor1;
     }
 }

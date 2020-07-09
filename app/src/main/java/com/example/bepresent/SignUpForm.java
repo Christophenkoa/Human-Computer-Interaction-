@@ -1,13 +1,14 @@
 package com.example.bepresent;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUpForm extends AppCompatActivity {
     private EditText mTextEmail;
@@ -18,6 +19,7 @@ public class SignUpForm extends AppCompatActivity {
     private Button mRegister;
     private Button mLogin;
     BePresentOpenHelper db;
+    private TextView mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class SignUpForm extends AppCompatActivity {
         mConfirmPassword = findViewById(R.id.sign_up_confirm);
         mRegister = findViewById(R.id.register);
         mLogin = findViewById(R.id.login_from_sign_up);
+        mLocation = findViewById(R.id.sign_up_location);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,10 +51,11 @@ public class SignUpForm extends AppCompatActivity {
                 String fullName = mFullName.getText().toString().trim();
                 String email = mTextEmail.getText().toString().trim();
                 String pwd = mPassword.getText().toString().trim();
+                String location = mLocation.getText().toString().trim();
                 String cnf_pwd = mConfirmPassword.getText().toString().trim();
 
                 if(pwd.equals(cnf_pwd)) {
-                    long val = db.addUser(fullName, userName, email,pwd);
+                    long val = db.addUser(fullName, userName, email,pwd, location);
                     if(val >0) {
                         Toast.makeText(SignUpForm.this, "You have registered", Toast.
                                 LENGTH_SHORT).show();

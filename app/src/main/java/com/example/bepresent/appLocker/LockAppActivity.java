@@ -1,31 +1,25 @@
 package com.example.bepresent.appLocker;
 
-import android.app.AlarmManager;
-import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.bepresent.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class lockapp_activity extends AppCompatActivity {
+public class LockAppActivity extends AppCompatActivity {
 
 
 
@@ -87,12 +81,12 @@ public class lockapp_activity extends AppCompatActivity {
                 final Model model = appList.get(position);
                 if(model.getLocked() == R.drawable.lock){
                     db.deleteData(model.getPackage_name());
-                    Toast.makeText(lockapp_activity.this,   "App UnLocked", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LockAppActivity.this,   "App UnLocked", Toast.LENGTH_LONG).show();
                     model.setLocked(R.drawable.unlock);
                 }
                 else{
                     db.insertData(model.getPackage_name(),pass);
-                    Toast.makeText(lockapp_activity.this,   "App Lock Successfully ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LockAppActivity.this,   "App Lock Successfully ", Toast.LENGTH_LONG).show();
                     model.setLocked(R.drawable.lock);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -156,7 +150,7 @@ public class lockapp_activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(lockapp_activity.this,MainActivity.class));
+        startActivity(new Intent(LockAppActivity.this,MainActivity.class));
         finish();
 
     }

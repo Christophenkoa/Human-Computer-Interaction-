@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">Be Present</string>
 
+    <string name="full_name">Julie Nkoa</string>
+    <string name="back_to_home">Back to\nHome</string>
+    <string name="username_title">Username</string>
+    <string name="username">"@julie_nkoa"</string>
+    <string name="phone_title">Phone</string>
+    <string name="phone">+237 656813822</string>
+    <string name="address_title">Address</string>
+    <string name="address">City, Street</string>
+    <string name="email_title">Email</string>
+    <string name="email">goldenperfecttv@gmail.com</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="toto">toto</string>
 </resources>

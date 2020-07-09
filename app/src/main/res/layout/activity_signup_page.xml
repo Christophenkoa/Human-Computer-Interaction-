@@ -107,38 +107,28 @@
 
             />
     </com.google.android.material.textfield.TextInputLayout>
-    
-    <RadioGroup
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation = "horizontal"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gender : "
-            android:textSize="20sp"
-            />
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="5dp"
+        >
 
-        <RadioButton
-            android:id="@+id/sex_male"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/sign_up_location"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Male"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-
-            />
-        <RadioButton
-            android:id="@+id/sex_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            android:layout_marginLeft="10dp"
+            android:hint="Location"
+            android:ems="10"
+            android:inputType="text"
             android:textSize="20sp"
 
             />
-    </RadioGroup>
+    </com.google.android.material.textfield.TextInputLayout>
+    
+
     
     <Button
         android:id="@+id/register"

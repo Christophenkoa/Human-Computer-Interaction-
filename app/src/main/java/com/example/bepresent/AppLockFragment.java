@@ -1,5 +1,6 @@
 package com.example.bepresent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,5 +15,12 @@ public class AppLockFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_app_lock , container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+       // startActivity(new Intent(view.getContext(), MainActivity.class));
+        startActivity(new Intent(view.getContext(), HomeActivity.class));
     }
 }
